@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search page</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <!--
+    <th:form method="post">
+        <input type="radio" id="searchById" value="searchById" name="search" >
+        <label for="searchById">Search By name / ph no./ email</label>
+        <input type="radio" id="searchAdvance" value="searchAdvance" name="search" >
+        <label for="searchAdvance">Advanced Search</label><br>
+        <input type="submit" value="submit">
+    </th:form> -->
+    <div class="row mt-5">
+        <div class="col-lg-6">
+            <!--
+            <th:form th:action="@{/search/byId}" method="post">
+                <input type="submit" id="searchById" class="btn btn-primary mt-5" value="Search By ID">
+            </th:form>-->
+            <h2>For Searching by ID:</h2>
+            <a class="btn btn-primary mt-5" th:href="@{/search/byId}">Search By ID</a>
+        </div>
+        <div class="col-lg-6">
+            <h2>For Advance Searching:</h2>
+            <a class="btn btn-primary mt-5" th:href="@{/search/advance}">Advance Search</a>
+            <!--
+            <th:form th:action="@{/search/advance}" method="post">
+                <input type="submit" id="searchAdvance" class="btn btn-success mt-5" value="Advance Search">
+            </th:form>-->
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

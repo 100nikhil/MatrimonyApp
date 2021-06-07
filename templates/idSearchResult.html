@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results by ID</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .card-img-top {
+            width: 100%;
+            height: 15vw;
+            object-fit: cover;
+        }
+
+        .card {
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 16px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+            transition: -webkit-transition: all 300ms ease-in;
+            -moz-transition: all 300ms ease-in;
+            -o-transition: all 300ms ease-in;
+            transition: all 300ms ease-in;
+            padding: 1px;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .06);
+        }
+        .favorite:hover {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table border="1" class="table">
+            <tr>
+                <div class="row mt-3">
+                    <div class="col-sm-3">
+                        <!-- Card-title,card-text,card-link-->
+                        <div class="card">
+                            <img class="card-img-top" th:src="@{/images/{image}(image=${userDetails.image})}" alt="img">
+                            <div class="card-body">
+                                <h3 class="card-title" ><span th:text="${userDetails.name}"></span></h3>
+                                <p class="card-text"><strong><span th:text="${userDetails.email}"></span></strong>
+                                    <br><span><i class="material-icons favorite">phone_enabled</i></span>
+                                    <span th:text="${userDetails.phone}"></span>
+                                    <br><span><i class="material-icons favorite">person_outline</i></span>
+                                    <span th:text="${userDetails.gender}"></span>
+                                    <br><span><i class="material-icons favorite">cake</i></span>
+                                    <span th:text="${userDetails.dob}"></span>
+                                </p>
+                                <!-- Give the url of user profile page -->
+                                <a class="btn btn-info btn-sm" th:href="@{#}">View Profile</a>
+                                <span><i class="material-icons md-18 ml-5 favorite">favorite_border</i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
